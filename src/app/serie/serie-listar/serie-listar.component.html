@@ -1,0 +1,33 @@
+<h2>TV Series</h2>
+<div class="container-fluid">
+  <div class="row">
+    <div class = "col-sm-8">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Channel</th>
+            <th scope="col">Seasons</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let c of series" (click)="onSelected(c)">
+            <td>{{c.id}}</td>
+            <td>{{c.name}}</td>
+            <td>{{c.channel}}</td>
+            <td>{{c.seasons}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class = "col-sm-4">
+      <div *ngIf="selected">
+        <app-serie-detail [serieDetail]="selectedSerie"></app-serie-detail>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<h5>Seasons average: {{getAvgSeasons()}}</h5>
